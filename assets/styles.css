@@ -111,22 +111,21 @@ img,iframe{max-width:100%}
   min-height:520px;
   object-fit:cover;
   display:block;
-  filter:grayscale(1) contrast(1.04);
 }
 .hero-verse{
   position:absolute;
   left:22px;
   right:22px;
   bottom:22px;
-  padding:22px;
-  background:rgba(255,255,255,.88);
+  padding:18px 22px;
+  background:rgba(255,255,255,.9);
   border:1px solid var(--line);
   border-radius:18px;
   color:var(--ink);
 }
 .hero-verse cite{
   display:block;
-  margin-bottom:8px;
+  margin-bottom:0;
   font-style:normal;
   font-size:17px;
   letter-spacing:.12em;
@@ -135,6 +134,14 @@ img,iframe{max-width:100%}
   margin:0;
   font-size:23px;
   line-height:1.75;
+}
+.scripture-ref{
+  display:block;
+  margin-top:18px;
+  font-family:var(--body);
+  font-size:clamp(18px,2.2vw,24px);
+  line-height:1.6;
+  letter-spacing:.06em;
 }
 .page-hero{padding-bottom:48px}
 .eyebrow,.section-kicker{
@@ -149,8 +156,8 @@ h1,h2,h3,p{margin-top:0}
 h1{
   font-family:var(--serif);
   font-weight:400;
-  font-size:clamp(48px,8.8vw,104px);
-  line-height:.98;
+  font-size:clamp(38px,7.04vw,83px);
+  line-height:1.08;
   letter-spacing:.025em;
   margin-bottom:28px;
 }
@@ -206,7 +213,7 @@ h1{
 h2{
   font-family:var(--serif);
   font-weight:400;
-  font-size:clamp(32px,5vw,58px);
+  font-size:clamp(26px,4vw,46px);
   line-height:1.1;
   margin-bottom:16px;
 }
@@ -265,7 +272,6 @@ dd{margin:0}
   height:100%;
   min-height:420px;
   border:0;
-  filter:grayscale(1) contrast(.9);
 }
 
 .news-list{
@@ -426,7 +432,7 @@ dd{margin:0}
 
 @media (max-width:540px){
   .brand span:last-child{display:none}
-  h1{font-size:46px}
+  h1{font-size:37px}
   .panel,.resource-card{padding:22px}
   .hero{padding-top:68px}
   .hero-image-card,.hero-image-card img{min-height:360px}

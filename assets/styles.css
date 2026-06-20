@@ -1,16 +1,17 @@
 :root{
-  --bg:#f7f6f2;
+  --bg:#ffffff;
   --paper:#ffffff;
-  --ink:#171717;
-  --muted:#6b675f;
-  --line:#ded9cf;
-  --soft:#ebe7dd;
-  --deep:#0f0f0f;
-  --accent:#9a8f7b;
+  --ink:#000000;
+  --muted:#000000;
+  --line:#d9d9d9;
+  --soft:#f5f5f5;
+  --deep:#000000;
+  --accent:#000000;
   --radius:22px;
   --max:1120px;
   --serif:"Cormorant Garamond","Noto Serif TC",serif;
-  --body:"Noto Serif TC","Cormorant Garamond",serif;
+  --body:"Noto Serif TC",serif;
+  --text-size:20.8px;
 }
 
 *{box-sizing:border-box}
@@ -20,6 +21,7 @@ body{
   background:var(--bg);
   color:var(--ink);
   font-family:var(--body);
+  font-size:var(--text-size);
   font-weight:300;
   line-height:1.9;
   letter-spacing:.035em;
@@ -37,16 +39,16 @@ img,iframe{max-width:100%}
   justify-content:space-between;
   gap:24px;
   padding:18px clamp(20px,4vw,54px);
-  background:rgba(247,246,242,.88);
+  background:rgba(255,255,255,.92);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(222,217,207,.72);
+  border-bottom:1px solid var(--line);
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:12px;
-  font-size:14px;
+  font-size:18px;
   letter-spacing:.14em;
   white-space:nowrap;
 }
@@ -57,8 +59,8 @@ img,iframe{max-width:100%}
   height:38px;
   border:1px solid var(--ink);
   border-radius:999px;
-  font-family:var(--serif);
-  font-size:13px;
+  font-family:var(--body);
+  font-size:17px;
   letter-spacing:.08em;
 }
 
@@ -66,7 +68,7 @@ img,iframe{max-width:100%}
   display:flex;
   align-items:center;
   gap:22px;
-  font-size:13px;
+  font-size:17px;
   color:var(--muted);
 }
 .nav a{transition:.2s ease}
@@ -78,7 +80,8 @@ img,iframe{max-width:100%}
   background:transparent;
   padding:8px 13px;
   border-radius:999px;
-  font-family:var(--serif);
+  font-family:var(--body);
+  font-size:17px;
   letter-spacing:.14em;
 }
 
@@ -87,13 +90,59 @@ img,iframe{max-width:100%}
   margin:0 auto;
   padding:clamp(78px,11vw,150px) clamp(20px,4vw,40px) clamp(56px,8vw,98px);
 }
+.home-hero{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);
+  gap:clamp(28px,5vw,64px);
+  align-items:center;
+}
+.home-hero .hero-copy{max-width:650px}
+.hero-image-card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--soft);
+  min-height:520px;
+}
+.hero-image-card img{
+  width:100%;
+  height:100%;
+  min-height:520px;
+  object-fit:cover;
+  display:block;
+  filter:grayscale(1) contrast(1.04);
+}
+.hero-verse{
+  position:absolute;
+  left:22px;
+  right:22px;
+  bottom:22px;
+  padding:22px;
+  background:rgba(255,255,255,.88);
+  border:1px solid var(--line);
+  border-radius:18px;
+  color:var(--ink);
+}
+.hero-verse cite{
+  display:block;
+  margin-bottom:8px;
+  font-style:normal;
+  font-size:17px;
+  letter-spacing:.12em;
+}
+.hero-verse p{
+  margin:0;
+  font-size:23px;
+  line-height:1.75;
+}
 .page-hero{padding-bottom:48px}
 .eyebrow,.section-kicker{
-  font-family:var(--serif);
+  font-family:var(--body);
   text-transform:uppercase;
   color:var(--muted);
   letter-spacing:.18em;
-  font-size:14px;
+  font-size:18px;
   margin-bottom:18px;
 }
 h1,h2,h3,p{margin-top:0}
@@ -108,7 +157,7 @@ h1{
 .hero-copy{
   max-width:690px;
   color:var(--muted);
-  font-size:clamp(16px,2vw,19px);
+  font-size:clamp(21px,2.6vw,25px);
 }
 .hero-actions,.button-row,.cta-actions{
   display:flex;
@@ -120,11 +169,11 @@ h1{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-height:44px;
-  padding:10px 18px;
+  min-height:50px;
+  padding:11px 20px;
   border:1px solid var(--ink);
   border-radius:999px;
-  font-size:14px;
+  font-size:18px;
   transition:.2s ease;
 }
 .button.primary{
@@ -162,10 +211,10 @@ h2{
   margin-bottom:16px;
 }
 h3{
-  font-family:var(--serif);
+  font-family:var(--body);
   font-weight:400;
-  font-size:28px;
-  line-height:1.25;
+  font-size:36px;
+  line-height:1.35;
   margin-bottom:12px;
 }
 .section-head p,.panel p,.resource-card p,.news-item span:last-child,.belief-list p{
@@ -174,7 +223,7 @@ h3{
 .text-link,.card-link{
   border-bottom:1px solid currentColor;
   color:var(--ink);
-  font-size:14px;
+  font-size:18px;
 }
 .visit-grid{
   display:grid;
@@ -182,7 +231,7 @@ h3{
   gap:22px;
 }
 .panel,.resource-card,.news-item,.belief-list article{
-  background:rgba(255,255,255,.58);
+  background:var(--paper);
   border:1px solid var(--line);
   border-radius:var(--radius);
 }
@@ -201,7 +250,7 @@ h3{
 }
 dt{
   color:var(--muted);
-  font-size:13px;
+  font-size:17px;
 }
 dd{margin:0}
 .map-panel{
@@ -225,7 +274,7 @@ dd{margin:0}
 }
 .news-item{
   display:grid;
-  grid-template-columns:120px 1.1fr 1.5fr;
+  grid-template-columns:150px 1.1fr 1.5fr;
   gap:18px;
   align-items:center;
   padding:22px 24px;
@@ -237,7 +286,8 @@ dd{margin:0}
 }
 .date{
   color:var(--accent);
-  font-size:13px;
+  font-family:var(--body);
+  font-size:17px;
   letter-spacing:.12em;
 }
 .card-grid.three{
@@ -252,7 +302,7 @@ dd{margin:0}
   flex-direction:column;
 }
 .card-number{
-  font-family:var(--serif);
+  font-family:var(--body);
   color:var(--accent);
   margin-bottom:42px;
 }
@@ -293,7 +343,7 @@ dd{margin:0}
   gap:28px;
   align-items:start;
   color:var(--muted);
-  font-size:14px;
+  font-size:18px;
 }
 .footer strong{color:var(--ink);font-weight:500}
 .footer-links{
@@ -308,7 +358,14 @@ dd{margin:0}
   border-radius:999px;
   padding:8px 14px;
   color:var(--muted);
-  font-size:13px;
+  font-size:17px;
+}
+.notice-panel{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px;
+  color:var(--muted);
 }
 .weekly-panel{max-width:860px}
 .belief-list{
@@ -324,13 +381,19 @@ dd{margin:0}
 }
 .belief-list span{
   grid-row:1 / span 2;
-  font-family:var(--serif);
+  font-family:var(--body);
   color:var(--accent);
-  font-size:22px;
+  font-size:29px;
 }
-.belief-list h3{font-size:24px}
+.belief-list h3{font-size:31px}
 
 @media (max-width:880px){
+  .home-hero{
+    grid-template-columns:1fr;
+  }
+  .hero-image-card,.hero-image-card img{
+    min-height:420px;
+  }
   .nav{
     display:none;
     position:absolute;
@@ -366,4 +429,7 @@ dd{margin:0}
   h1{font-size:46px}
   .panel,.resource-card{padding:22px}
   .hero{padding-top:68px}
+  .hero-image-card,.hero-image-card img{min-height:360px}
+  .hero-verse{left:14px;right:14px;bottom:14px;padding:16px}
+  .hero-verse p{font-size:20px}
 }

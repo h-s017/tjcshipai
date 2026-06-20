@@ -6,6 +6,7 @@
   "items": [
     {
       "number": "00",
+      "slug": "intro",
       "title": "導讀",
       "subtitle": "十大信條總覽",
       "date": "每週更新",
@@ -15,6 +16,7 @@
     },
     {
       "number": "01",
+      "slug": "believe-jesus",
       "title": "信耶穌",
       "subtitle": "真耶穌教會基本信仰（一）",
       "date": "第 1 週",
@@ -24,6 +26,7 @@
     },
     {
       "number": "02",
+      "slug": "believe-bible",
       "title": "信聖經",
       "subtitle": "真耶穌教會基本信仰（二）",
       "date": "第 2 週",
@@ -33,6 +36,7 @@
     },
     {
       "number": "03",
+      "slug": "believe-church",
       "title": "信教會",
       "subtitle": "真耶穌教會基本信仰（三）",
       "date": "第 3 週",
@@ -42,6 +46,7 @@
     },
     {
       "number": "04",
+      "slug": "believe-baptism",
       "title": "信浸禮",
       "subtitle": "真耶穌教會基本信仰（四）",
       "date": "第 4 週",
@@ -51,6 +56,7 @@
     },
     {
       "number": "05",
+      "slug": "believe-holy-spirit",
       "title": "信聖靈",
       "subtitle": "真耶穌教會基本信仰（五）",
       "date": "第 5 週",
@@ -60,6 +66,7 @@
     },
     {
       "number": "06",
+      "slug": "believe-footwashing",
       "title": "信洗腳禮",
       "subtitle": "真耶穌教會基本信仰（六）",
       "date": "第 6 週",
@@ -69,6 +76,7 @@
     },
     {
       "number": "07",
+      "slug": "believe-communion",
       "title": "信聖餐禮",
       "subtitle": "真耶穌教會基本信仰（七）",
       "date": "第 7 週",
@@ -78,6 +86,7 @@
     },
     {
       "number": "08",
+      "slug": "believe-sabbath",
       "title": "信安息日",
       "subtitle": "真耶穌教會基本信仰（八）",
       "date": "第 8 週",
@@ -87,6 +96,7 @@
     },
     {
       "number": "09",
+      "slug": "believe-salvation",
       "title": "信得救",
       "subtitle": "真耶穌教會基本信仰（九）",
       "date": "第 9 週",
@@ -96,6 +106,7 @@
     },
     {
       "number": "10",
+      "slug": "believe-judgment",
       "title": "信審判",
       "subtitle": "真耶穌教會基本信仰（十）",
       "date": "第 10 週",

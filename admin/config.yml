@@ -47,6 +47,7 @@ collections:
             widget: "list"
             fields:
               - { label: "編號", name: "number", widget: "string" }
+              - { label: "Slug", name: "slug", widget: "string" }
               - { label: "標題", name: "title", widget: "string" }
               - { label: "副標", name: "subtitle", widget: "string" }
               - { label: "週次／日期", name: "date", widget: "string" }
@@ -69,8 +70,15 @@ collections:
             widget: "list"
             fields:
               - { label: "日期", name: "date", widget: "string" }
+              - { label: "原始建立日期", name: "originalDate", widget: "string", required: false }
+              - { label: "原始日期備註", name: "originalDateText", widget: "text", required: false }
+              - { label: "Slug", name: "slug", widget: "string" }
               - { label: "標題", name: "title", widget: "string" }
+              - { label: "作者", name: "author", widget: "string", required: false }
               - { label: "家庭／作者", name: "family", widget: "string" }
               - { label: "摘要", name: "excerpt", widget: "text" }
               - { label: "內文", name: "content", widget: "text" }
               - { label: "狀態", name: "status", widget: "string" }
+              - { label: "來源連結", name: "sourceUrl", widget: "string", required: false }
+              - { label: "圖片", name: "image", widget: "image", required: false }
+              - { label: "圖片替代文字", name: "imageAlt", widget: "string", required: false }

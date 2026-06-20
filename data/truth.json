@@ -1,0 +1,107 @@
+{
+  "sourceTitle": "十大信條｜喜信網路家庭",
+  "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7",
+  "updatedAt": "2026-06-20",
+  "intro": "依喜信網路家庭《十大信條》目錄建立課程式閱讀架構；各篇可由後台補充本週講義、經文與課後問題。",
+  "items": [
+    {
+      "number": "00",
+      "title": "導讀",
+      "subtitle": "十大信條總覽",
+      "date": "每週更新",
+      "excerpt": "從整體架構認識真耶穌教會的基本信仰，建立後續查考的順序與核心問題。",
+      "content": "可放本週導讀重點、課程錄音、補充經節與討論題。建議先說明十大信條的目的：不是抽象條文，而是幫助人按聖經認識救恩。",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "01",
+      "title": "信耶穌",
+      "subtitle": "真耶穌教會基本信仰（一）",
+      "date": "第 1 週",
+      "excerpt": "認識耶穌基督的身分、救恩與信仰中心。",
+      "content": "課程可聚焦：耶穌是救主、道成肉身、為人受死並復活。帶領學員思考：為什麼信仰必須從耶穌基督開始？",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "02",
+      "title": "信聖經",
+      "subtitle": "真耶穌教會基本信仰（二）",
+      "date": "第 2 週",
+      "excerpt": "以新舊約聖經作為信仰、生活與得救道路的根據。",
+      "content": "課程可聚焦：聖經的權威、默示與實踐。帶領學員理解：信仰不是只憑感覺，而是回到神的話語。",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "03",
+      "title": "信教會",
+      "subtitle": "真耶穌教會基本信仰（三）",
+      "date": "第 3 週",
+      "excerpt": "認識教會與救恩、真理、聖靈帶領之間的關係。",
+      "content": "課程可聚焦：教會不是建築，而是主所設立、由聖靈引導的信仰群體。可補充石牌教會在地聚會與牧養脈絡。",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "04",
+      "title": "信浸禮",
+      "subtitle": "真耶穌教會基本信仰（四）",
+      "date": "第 4 週",
+      "excerpt": "認識奉主耶穌聖名受洗、赦罪與歸入基督的信仰意義。",
+      "content": "課程可聚焦：浸禮與赦罪、悔改、重生的關係。可引導學員查考使徒時代的洗禮實踐。",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "05",
+      "title": "信聖靈",
+      "subtitle": "真耶穌教會基本信仰（五）",
+      "date": "第 5 週",
+      "excerpt": "認識聖靈的應許、憑據與信仰生命的更新。",
+      "content": "課程可聚焦：聖靈的應許、領受聖靈、禱告與生命改變。可補充個人靈修與聚會生活的連結。",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "06",
+      "title": "信洗腳禮",
+      "subtitle": "真耶穌教會基本信仰（六）",
+      "date": "第 6 週",
+      "excerpt": "認識主耶穌設立洗腳禮的意義，學習與主有分、彼此相愛。",
+      "content": "課程可聚焦：約翰福音中的洗腳教訓、謙卑服事與信徒相交。可安排課後反思：我如何學習主的樣式？",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "07",
+      "title": "信聖餐禮",
+      "subtitle": "真耶穌教會基本信仰（七）",
+      "date": "第 7 週",
+      "excerpt": "認識聖餐與紀念主死、領受主生命、與主聯合的關係。",
+      "content": "課程可聚焦：聖餐的設立、紀念與省察。可補充聚會中領受聖餐的準備與態度。",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "08",
+      "title": "信安息日",
+      "subtitle": "真耶穌教會基本信仰（八）",
+      "date": "第 8 週",
+      "excerpt": "認識安息日的聖別、敬拜與親近神的信仰實踐。",
+      "content": "課程可聚焦：神設立安息日、主日與安息日的辨別、信徒如何守安息日。可連結石牌教會週六聚會安排。",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "09",
+      "title": "信得救",
+      "subtitle": "真耶穌教會基本信仰（九）",
+      "date": "第 9 週",
+      "excerpt": "認識得救不是只靠口頭認同，而是進入基督救恩並持守信仰。",
+      "content": "課程可聚焦：恩典、信心、悔改、受洗、聖靈與成聖生活。可用問題帶領：我如何確知自己走在得救路上？",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    },
+    {
+      "number": "10",
+      "title": "信審判",
+      "subtitle": "真耶穌教會基本信仰（十）",
+      "date": "第 10 週",
+      "excerpt": "認識主再臨、末日審判與永生盼望，使信仰回到警醒與預備。",
+      "content": "課程可聚焦：主再臨、審判、永生與信徒今日的預備。語氣宜清楚莊重，避免恐嚇式表達。",
+      "sourceUrl": "https://joy.org.tw/app/integration/goodnews_books.php?books_id=7"
+    }
+  ]
+}

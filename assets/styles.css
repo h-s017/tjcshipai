@@ -156,8 +156,8 @@ h1,h2,h3,p{margin-top:0}
 h1{
   font-family:var(--serif);
   font-weight:400;
-  font-size:clamp(27px,4.93vw,58px);
-  line-height:1.08;
+  font-size:clamp(24px,4.2vw,48px);
+  line-height:1.14;
   letter-spacing:.025em;
   margin-bottom:28px;
 }
@@ -432,7 +432,7 @@ dd{margin:0}
 
 @media (max-width:540px){
   .brand span:last-child{display:none}
-  h1{font-size:26px}
+  h1{font-size:23px}
   .panel,.resource-card{padding:22px}
   .hero{padding-top:68px}
   .hero-image-card,.hero-image-card img{min-height:360px}

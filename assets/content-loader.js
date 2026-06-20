@@ -110,11 +110,20 @@ async function renderTruthBlog() {
       </article>
       `).join('') || '<p class="notice-panel">沒有符合搜尋條件的課程。</p>';
     };
-    const currentSlug = decodeURIComponent(location.hash.replace(/^#/, ''));
-    const selected = data.items.find(item => getSlug(item) === currentSlug);
-    if (selected) renderDetail(detail, selected, 'truth');
+    const showSelected = () => {
+      const currentSlug = decodeURIComponent(location.hash.replace(/^#/, ''));
+      const selected = data.items.find(item => getSlug(item) === currentSlug);
+      if (selected) {
+        renderDetail(detail, selected, 'truth');
+      } else if (detail) {
+        detail.hidden = true;
+        detail.innerHTML = '';
+      }
+    };
+    showSelected();
     renderList();
     search?.addEventListener('input', renderList);
+    window.addEventListener('hashchange', showSelected);
   } catch (error) {
     target.innerHTML = '<p class="notice-panel">目前無法讀取真理造就班資料，請稍後再試。</p>';
   }
@@ -142,11 +151,20 @@ async function renderTestimonyBlog() {
         </article>
       `).join('') || '<p class="notice-panel">沒有符合搜尋條件的見證。</p>';
     };
-    const currentSlug = decodeURIComponent(location.hash.replace(/^#/, ''));
-    const selected = data.items.find(item => getSlug(item) === currentSlug);
-    if (selected) renderDetail(detail, selected, 'testimony');
+    const showSelected = () => {
+      const currentSlug = decodeURIComponent(location.hash.replace(/^#/, ''));
+      const selected = data.items.find(item => getSlug(item) === currentSlug);
+      if (selected) {
+        renderDetail(detail, selected, 'testimony');
+      } else if (detail) {
+        detail.hidden = true;
+        detail.innerHTML = '';
+      }
+    };
+    showSelected();
     renderList();
     search?.addEventListener('input', renderList);
+    window.addEventListener('hashchange', showSelected);
   } catch (error) {
     target.innerHTML = '<p class="notice-panel">目前無法讀取家族見證資料，請稍後再試。</p>';
   }

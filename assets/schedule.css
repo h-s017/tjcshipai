@@ -1,0 +1,63 @@
+.schedule-page-hero{
+  padding-bottom:42px;
+}
+
+.schedule-shell{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 clamp(20px,4vw,40px) clamp(64px,9vw,110px);
+}
+
+.schedule-toolbar{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:22px;
+}
+
+.schedule-toolbar h2{
+  margin-bottom:8px;
+}
+
+.schedule-toolbar p{
+  margin:0;
+  color:var(--muted);
+}
+
+.schedule-frame-wrap{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--soft);
+  min-height:720px;
+}
+
+.schedule-frame{
+  display:block;
+  width:100%;
+  min-height:720px;
+  border:0;
+  background:#fff;
+}
+
+.schedule-fallback{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:16px;
+}
+
+@media (max-width:880px){
+  .schedule-toolbar{
+    display:block;
+  }
+
+  .schedule-toolbar .button{
+    margin-top:16px;
+  }
+
+  .schedule-frame-wrap,
+  .schedule-frame{
+    min-height:640px;
+  }
+}

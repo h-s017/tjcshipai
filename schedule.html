@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>安排表｜真耶穌教會石牌教會</title>
+  <meta name="description" content="真耶穌教會石牌教會每月安排表，自動顯示當月份分頁。" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/navigation.css" />
+  <link rel="stylesheet" href="assets/schedule.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="回到首頁">
+      <span class="brand-mark">TJC</span>
+      <span>真耶穌教會石牌教會</span>
+    </a>
+    <nav class="nav" aria-label="主選單">
+      <div class="nav-item has-submenu">
+        <button class="nav-trigger" type="button">官網</button>
+        <div class="submenu" aria-label="官網子選單">
+          <a href="index.html">首頁</a>
+          <div class="submenu-item has-submenu">
+            <button class="submenu-trigger" type="button">關於我</button>
+            <div class="submenu nested" aria-label="關於我子選單">
+              <a href="testimonies.html">教會沿革</a>
+              <a href="truth.html#truth-blog">基本教義</a>
+              <a href="visit.html#schedule">聚會時間</a>
+              <a href="visit.html#religious-education">宗教教育</a>
+              <a href="visit.html#fellowship">團契時間</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item has-submenu">
+        <button class="nav-trigger" type="button">最新公告</button>
+        <div class="submenu" aria-label="最新公告子選單">
+          <a href="index.html#resources">每日讀經/講道影音</a>
+          <a href="index.html#news">福音日資訊</a>
+          <a href="index.html#news">樂齡活動</a>
+          <a href="truth.html">真理造就班</a>
+        </div>
+      </div>
+      <a href="schedule.html" aria-current="page">安排表</a>
+      <a href="index.html#resources">線上資源</a>
+      <a href="index.html#contact">與我聯繫</a>
+    </nav>
+    <button class="menu-button" type="button" aria-label="開啟選單" aria-expanded="false">MENU</button>
+  </header>
+
+  <main>
+    <section class="hero page-hero schedule-page-hero">
+      <div class="eyebrow">Monthly Schedule</div>
+      <h1>安排表</h1>
+      <p class="hero-copy">網站會依台灣時間自動切換到當月份安排表；每月一日重新對應最新月份分頁。</p>
+    </section>
+
+    <section class="schedule-shell" aria-labelledby="schedule-month">
+      <div class="schedule-toolbar">
+        <div>
+          <div class="section-kicker">Current Month</div>
+          <h2 id="schedule-month">本月安排表</h2>
+          <p id="schedule-status">正在取得當月份分頁。</p>
+        </div>
+        <a id="schedule-open-link" class="button ghost" href="https://docs.google.com/spreadsheets/d/1v5f3u7T6WJdnyNquAHzpJmtDCVfqmUd4l-j72Ah0Kcw/htmlview" target="_blank" rel="noopener">另開安排表</a>
+      </div>
+
+      <div class="schedule-frame-wrap">
+        <iframe
+          id="schedule-frame"
+          class="schedule-frame"
+          title="真耶穌教會石牌教會本月安排表"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <p class="schedule-fallback">若嵌入畫面未顯示，可使用上方「另開安排表」查看 Google 試算表。</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><strong>真耶穌教會石牌教會</strong><p>112 台北市北投區致遠一路一段 27 號<br>電話：<a href="tel:+886228233734">02-2823-3734</a></p></div>
+    <div class="footer-links"><a href="index.html">首頁</a><a href="visit.html">我要去教會</a><a href="schedule.html">安排表</a><a href="truth.html">真理造就班</a></div>
+    <small>© 真耶穌教會石牌教會</small>
+  </footer>
+
+  <script src="assets/app.js"></script>
+  <script src="assets/schedule.js"></script>
+</body>
+</html>

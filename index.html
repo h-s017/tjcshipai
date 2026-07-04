@@ -8,10 +8,12 @@
   <meta property="og:title" content="真耶穌教會石牌教會" />
   <meta property="og:description" content="我要去教會｜最新消息｜每日讀經｜講道連結｜石牌40見證｜真理造就班" />
   <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/navigation.css" />
 </head>
 <body>
   <header class="site-header">
@@ -20,12 +22,34 @@
       <span>真耶穌教會石牌教會</span>
     </a>
     <nav class="nav" aria-label="主選單">
-      <a href="visit.html">我要去教會</a>
-      <a href="#news">最新消息</a>
+      <div class="nav-item has-submenu">
+        <button class="nav-trigger is-current" type="button">官網</button>
+        <div class="submenu" aria-label="官網子選單">
+          <a href="index.html" aria-current="page">首頁</a>
+          <div class="submenu-item has-submenu">
+            <button class="submenu-trigger" type="button">關於我</button>
+            <div class="submenu nested" aria-label="關於我子選單">
+              <a href="testimonies.html">教會沿革</a>
+              <a href="truth.html#truth-blog">基本教義</a>
+              <a href="visit.html#schedule">聚會時間</a>
+              <a href="visit.html#religious-education">宗教教育</a>
+              <a href="visit.html#fellowship">團契時間</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item has-submenu">
+        <button class="nav-trigger" type="button">最新公告</button>
+        <div class="submenu" aria-label="最新公告子選單">
+          <a href="#resources">每日讀經/講道影音</a>
+          <a href="#news">福音日資訊</a>
+          <a href="#news">樂齡活動</a>
+          <a href="truth.html">真理造就班</a>
+        </div>
+      </div>
+      <a href="visit.html#schedule">安排表</a>
       <a href="#resources">線上資源</a>
-      <a href="testimonies.html">石牌40見證</a>
-      <a href="truth.html">真理造就班</a>
-      <a href="#contact">聯絡</a>
+      <a href="#contact">與我聯繫</a>
     </nav>
     <button class="menu-button" type="button" aria-label="開啟選單" aria-expanded="false">MENU</button>
   </header>
@@ -51,7 +75,6 @@
       <div class="section-kicker">Visit</div>
       <div class="section-head">
         <h2>我要去教會</h2>
-    
       </div>
       <div class="visit-grid">
         <article class="panel">

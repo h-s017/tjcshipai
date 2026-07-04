@@ -1,0 +1,172 @@
+.nav{
+  overflow:visible;
+}
+
+.nav > a,
+.nav-trigger,
+.submenu-trigger{
+  color:var(--muted);
+  font:inherit;
+  letter-spacing:inherit;
+}
+
+.nav > a,
+.nav-trigger{
+  white-space:nowrap;
+}
+
+.nav-item,
+.submenu-item{
+  position:relative;
+}
+
+.nav-trigger,
+.submenu-trigger{
+  appearance:none;
+  border:0;
+  background:transparent;
+  padding:0;
+  cursor:pointer;
+}
+
+.nav-trigger{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.nav-trigger::after,
+.submenu-trigger::after{
+  content:"⌄";
+  font-size:.72em;
+  line-height:1;
+  transform:translateY(-1px);
+}
+
+.submenu{
+  display:none;
+  position:absolute;
+  top:calc(100% + 12px);
+  left:-12px;
+  z-index:30;
+  min-width:230px;
+  padding:8px;
+  background:rgba(255,255,255,.98);
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:0 20px 48px rgba(0,0,0,.10);
+}
+
+.submenu::before{
+  content:"";
+  position:absolute;
+  top:-12px;
+  left:0;
+  right:0;
+  height:12px;
+}
+
+.has-submenu:hover > .submenu,
+.has-submenu:focus-within > .submenu{
+  display:block;
+}
+
+.submenu a,
+.submenu-trigger{
+  display:flex;
+  width:100%;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:10px 12px;
+  border-radius:10px;
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.5;
+  text-align:left;
+  white-space:nowrap;
+}
+
+.submenu a:hover,
+.submenu a:focus-visible,
+.submenu-trigger:hover,
+.submenu-trigger:focus-visible{
+  background:var(--soft);
+  outline:none;
+}
+
+.submenu.nested{
+  top:-8px;
+  left:calc(100% + 8px);
+  min-width:210px;
+}
+
+.submenu.nested::before{
+  top:0;
+  bottom:0;
+  left:-8px;
+  right:auto;
+  width:8px;
+  height:auto;
+}
+
+.nav a[aria-current="page"],
+.nav .is-current{
+  color:var(--ink);
+}
+
+@media (max-width:880px){
+  .nav{
+    max-height:calc(100vh - 100px);
+    overflow-y:auto;
+  }
+
+  .nav > a,
+  .nav-item,
+  .nav-trigger,
+  .submenu-item,
+  .submenu-trigger{
+    width:100%;
+  }
+
+  .nav > a,
+  .nav-trigger{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:7px 2px;
+  }
+
+  .nav .submenu,
+  .nav .submenu.nested{
+    display:block;
+    position:static;
+    min-width:0;
+    margin:2px 0 8px;
+    padding:0 0 0 16px;
+    background:transparent;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+  }
+
+  .nav .submenu::before{
+    display:none;
+  }
+
+  .nav .submenu .submenu.nested{
+    padding-left:16px;
+  }
+
+  .submenu a,
+  .submenu-trigger{
+    padding:7px 8px;
+    font-size:15px;
+    white-space:normal;
+  }
+
+  .nav-trigger::after,
+  .submenu-trigger::after{
+    content:"";
+  }
+}

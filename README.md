@@ -71,5 +71,5 @@ UUk8zggAqSLPpgpTlR75Ju6w
 
 - 最新消息改成 `news.json` 或串 Google Sheet
 - 真理造就班每週更新改成後台 CMS
-- 加入教會照片、聚會安排表、兒教與團契頁面
+- 加入兒教與團契頁面
 - 加上自訂網域，例如 `shipai.tjchurch.org.tw`

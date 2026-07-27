@@ -80,5 +80,3 @@ collections:
               - { label: "內文", name: "content", widget: "text" }
               - { label: "狀態", name: "status", widget: "string" }
               - { label: "來源連結", name: "sourceUrl", widget: "string", required: false }
-              - { label: "圖片", name: "image", widget: "image", required: false }
-              - { label: "圖片替代文字", name: "imageAlt", widget: "string", required: false }

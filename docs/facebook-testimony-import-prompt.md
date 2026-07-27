@@ -5,8 +5,8 @@
 ## 每批開始前
 
 1. 確認 Chrome 已登入 Facebook，且能正常打開社團貼文。
-2. 開啟 `data/testimony-directory.tsv`，找出狀態仍是「已建立目錄，全文與圖片待匯入」的項目，依 `directoryOrder` 由前往後挑 5~10 篇。
-3. 開啟 `data/testimonies.json`，找到對應 `slug` 的條目，確認目前欄位（避免覆蓋已有的 `content`/`image`）。
+2. 開啟 `data/testimony-directory.tsv`，找出狀態仍是「已建立目錄，全文待匯入」的項目，依 `directoryOrder` 由前往後挑 5~10 篇。
+3. 開啟 `data/testimonies.json`，找到對應 `slug` 的條目，確認目前欄位（避免覆蓋已有的 `content`）。
 
 ## 單篇擷取 Prompt 模板（貼給本機 Claude）
 
@@ -20,7 +20,6 @@
    - 完整貼文全文（保留原始分段，用 \n\n 分隔）
    - 發文作者
    - 原始發文日期（用滑鼠停在日期上看 tooltip，或檢查可讀的完整日期文字；如果只看到模糊的「3小時前」之類相對時間，請改用貼文網址或其他可靠方式確認絕對日期；無法確認就回報「無法確認」，不要猜測）
-   - 貼文中屬於本篇的圖片網址（不要抓取留言區或側邊欄的圖片）
    - 貼文的實際 Facebook permalink（如果跟 TinyURL 不同）
 
 3. 把結果用以下格式回報給我：
@@ -28,7 +27,6 @@
 作者：
 原始日期：
 全文：
-圖片網址（每行一個）：
 Permalink：
 ```
 
@@ -38,8 +36,6 @@ Permalink：
 - `excerpt`：全文前 1~2 句的簡短摘要
 - `originalDate` / `date`：確認到的日期（格式 YYYY-MM-DD），若無法確認維持 `"待確認"`
 - `originalDateText`：若日期確認，填寫人工可讀說明（例如「依貼文時間戳記確認」）；若未確認維持原文字
-- `image`：下載圖片後存到 `assets/uploads/testimony-<作者羅馬拼音>-01.jpg`，此欄填相對路徑
-- `imageAlt`：簡短描述圖片內容
 - `status`：
   - 全文+日期都確認 → `已匯入展開全文，日期已確認`
   - 全文確認但日期未確認 → `已匯入展開全文，日期待確認`
@@ -62,12 +58,12 @@ git diff --check
 git status --short
 ```
 
-本機靜態預覽：開 `http://127.0.0.1:4173/testimonies.html`，確認卡片數仍為 61、搜尋正常、圖片無破圖。
+本機靜態預覽：開 `http://127.0.0.1:4173/testimonies.html`，確認卡片數仍為 61、搜尋正常。
 
 ## Commit & Push
 
 ```powershell
-git add data/testimonies.json assets/uploads/*
+git add data/testimonies.json
 git commit -m "Import family testimony batch <directoryOrder 範圍>"
 git push origin main
 ```

@@ -34,23 +34,18 @@ function itemMatches(item, query) {
   if (!query) return true;
   return normalizeSearch([
     item.number,
-    item.date,
-    item.originalDate,
-    item.originalDateText,
     item.title,
     item.subtitle,
     item.author,
-    item.family,
     item.excerpt,
-    item.content,
-    item.status
+    item.content
   ].join(' ')).includes(query);
 }
 
 function renderDetail(target, item, type) {
   if (!target || !item) return;
   const meta = type === 'testimony'
-    ? [item.originalDate || item.date, item.author, item.family].filter(Boolean)
+    ? [item.author].filter(Boolean)
     : [item.number, item.date, item.subtitle].filter(Boolean);
   const image = item.image
     ? `<figure class="blog-figure"><img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}"></figure>`
@@ -69,7 +64,6 @@ function renderDetail(target, item, type) {
       ${image}
       <p class="lead">${escapeHtml(item.excerpt)}</p>
       <div class="content">${toParagraphs(item.content)}</div>
-      ${item.originalDateText ? `<p class="source-note">原始日期文字：${escapeHtml(item.originalDateText)}</p>` : ''}
       ${source}
     </article>
   `;
@@ -116,7 +110,7 @@ async function renderTestimonyBlog() {
                 <span class="testimony-list-number">${String(item.directoryOrder || index + 1).padStart(2, '0')}</span>
                 <span class="testimony-list-copy">
                   <strong>${escapeHtml(item.title)}</strong>
-                  <span>${escapeHtml(item.family || item.author || '')}</span>
+                  <span>${escapeHtml(item.author || '')}</span>
                 </span>
                 <span class="testimony-list-action">閱讀全文 →</span>
               </a>
@@ -145,7 +139,7 @@ async function renderTestimonyBlog() {
     search?.addEventListener('input', renderList);
     window.addEventListener('hashchange', showSelected);
   } catch (error) {
-    target.innerHTML = '<p class="notice-panel">目前無法讀取家族見證資料，請稍後再試。</p>';
+    target.innerHTML = '<p class="notice-panel">目前無法讀取生命見證資料，請稍後再試。</p>';
   }
 }
 

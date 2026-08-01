@@ -2,8 +2,11 @@ backend:
   name: github
   repo: h-s017/tjcshipai
   branch: main
+  open_authoring: false
 
-local_backend: true
+publish_mode: editorial_workflow
+locale: "zh_Hant"
+
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
@@ -32,28 +35,6 @@ collections:
               - { label: "標題", name: "title", widget: "string" }
               - { label: "摘要", name: "excerpt", widget: "text" }
               - { label: "連結", name: "url", widget: "string" }
-
-      - label: "真理造就班｜十大信條"
-        name: "truth"
-        file: "data/truth.json"
-        format: "json"
-        fields:
-          - { label: "來源標題", name: "sourceTitle", widget: "string" }
-          - { label: "來源網址", name: "sourceUrl", widget: "string" }
-          - { label: "更新日期", name: "updatedAt", widget: "string" }
-          - { label: "頁面導言", name: "intro", widget: "text" }
-          - label: "信條文章"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "編號", name: "number", widget: "string" }
-              - { label: "Slug", name: "slug", widget: "string" }
-              - { label: "標題", name: "title", widget: "string" }
-              - { label: "副標", name: "subtitle", widget: "string" }
-              - { label: "週次／日期", name: "date", widget: "string" }
-              - { label: "摘要", name: "excerpt", widget: "text" }
-              - { label: "內文", name: "content", widget: "text" }
-              - { label: "來源連結", name: "sourceUrl", widget: "string" }
 
       - label: "石牌40｜家族見證"
         name: "testimonies"

@@ -93,46 +93,6 @@ async function renderNewsList() {
   }
 }
 
-async function renderTruthBlog() {
-  const target = document.getElementById('truth-blog-list');
-  if (!target) return;
-  const detail = document.getElementById('truth-detail');
-  const search = document.getElementById('truth-search');
-  try {
-    const data = await loadJson('data/truth.json');
-    const renderList = () => {
-      const query = normalizeSearch(search?.value || '');
-      const items = data.items.filter(item => itemMatches(item, query));
-      target.innerHTML = items.map(item => `
-      <article class="blog-card">
-        <div class="meta"><span>${escapeHtml(item.number)}</span><span>${escapeHtml(item.date)}</span></div>
-        <h3>${escapeHtml(item.title)}</h3>
-        <p><strong>${escapeHtml(item.subtitle)}</strong></p>
-        <p>${escapeHtml(item.excerpt)}</p>
-        <div class="content">${toParagraphs(item.content)}</div>
-        <a class="card-link" href="truth.html#${encodeURIComponent(getSlug(item))}">閱讀與分享 →</a>
-      </article>
-      `).join('') || '<p class="notice-panel">沒有符合搜尋條件的課程。</p>';
-    };
-    const showSelected = () => {
-      const currentSlug = decodeURIComponent(location.hash.replace(/^#/, ''));
-      const selected = data.items.find(item => getSlug(item) === currentSlug);
-      if (selected) {
-        renderDetail(detail, selected, 'truth');
-      } else if (detail) {
-        detail.hidden = true;
-        detail.innerHTML = '';
-      }
-    };
-    showSelected();
-    renderList();
-    search?.addEventListener('input', renderList);
-    window.addEventListener('hashchange', showSelected);
-  } catch (error) {
-    target.innerHTML = '<p class="notice-panel">目前無法讀取真理造就班資料，請稍後再試。</p>';
-  }
-}
-
 async function renderTestimonyBlog() {
   const target = document.getElementById('testimony-blog-list');
   if (!target) return;
@@ -190,5 +150,4 @@ async function renderTestimonyBlog() {
 }
 
 renderNewsList();
-renderTruthBlog();
 renderTestimonyBlog();

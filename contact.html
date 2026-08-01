@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>與我聯繫｜真耶穌教會石牌教會</title>
+  <meta name="description" content="聯絡真耶穌教會石牌教會，留下姓名、電子郵件與訊息。" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/navigation.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="回到首頁"><span class="brand-mark">TJC</span><span>真耶穌教會石牌教會</span></a>
+    <nav class="nav" id="site-navigation" aria-label="主選單">
+      <a href="index.html">首頁</a>
+      <a href="visit.html">我要去教會</a>
+      <div class="nav-item has-submenu">
+        <button class="nav-trigger" type="button">教會內容</button>
+        <div class="submenu" aria-label="教會內容子選單">
+          <a href="testimonies.html">教會沿革與見證</a><a href="truth.html">真理造就班</a><a href="index.html#news">最新公告</a><a href="index.html#resources">線上資源</a>
+        </div>
+      </div>
+      <div class="nav-item has-submenu">
+        <button class="nav-trigger" type="button">友站連結</button>
+        <div class="submenu" aria-label="友站連結子選單">
+          <a href="https://tjc.org/zh/" target="_blank" rel="noopener">真耶穌教會</a>
+          <a href="https://sacredmusic.tjc.org.tw/" target="_blank" rel="noopener">真耶穌教會聖樂網</a>
+          <a href="https://joy.org.tw/appw/" target="_blank" rel="noopener">宣道整合包</a>
+          <a href="https://www.tvla.org.tw/" target="_blank" rel="noopener">台灣葡萄園社會關懷協會</a>
+          <a href="https://www.rehoboth-welfare.org.tw/" target="_blank" rel="noopener">利河伯社會福利基金會</a>
+          <a href="https://bible1.tjc.org/" target="_blank" rel="noopener">eRhema Bible App</a>
+        </div>
+      </div>
+      <div class="nav-item has-submenu">
+        <button class="nav-trigger" type="button">讀經專欄</button>
+        <div class="submenu" aria-label="讀經專欄子選單">
+          <a href="https://prping.blogspot.com/" target="_blank" rel="noopener">PR Ping 讀經專欄</a>
+          <a href="https://isaiahkao.blogspot.com/" target="_blank" rel="noopener">Isaiah Kao 讀經專欄</a>
+          <a href="https://tjcshipaiandtianmu.blogspot.com/" target="_blank" rel="noopener">石牌天母每日讀經心得網</a>
+        </div>
+      </div>
+      <a href="contact.html" aria-current="page">與我聯繫</a>
+    </nav>
+    <button class="menu-button" type="button" aria-label="開啟選單" aria-controls="site-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+  <main>
+    <section class="hero page-hero">
+      <div class="eyebrow">Contact</div>
+      <h1>與我聯繫</h1>
+      <p class="hero-copy">若想了解聚會、信仰或教會活動，歡迎留下訊息，我們會透過電子郵件與你聯繫。</p>
+    </section>
+    <section class="section">
+      <div class="section-kicker">Message</div>
+      <div class="section-head"><h2>寫信給石牌教會</h2><p>標示「必填」的欄位請完整填寫。</p></div>
+      <form class="contact-form" action="https://formsubmit.co/shipai.tjchurch@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="石牌教會網站｜新聯絡訊息">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <label>姓名（必填）<input type="text" name="姓名" autocomplete="name" required></label>
+        <label>電子郵件（必填）<input type="email" name="email" autocomplete="email" required></label>
+        <label>電話<input type="tel" name="電話" autocomplete="tel"></label>
+        <label>主旨（必填）<input type="text" name="主旨" required></label>
+        <label>訊息內容（必填）<textarea name="訊息內容" required></textarea></label>
+        <label class="honeypot" aria-hidden="true">請勿填寫<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+        <div><button class="button primary" type="submit">送出訊息</button></div>
+        <p class="contact-note">送出的內容將寄送至石牌教會信箱；請勿填寫密碼、身分證字號等敏感資訊。</p>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <div><strong>真耶穌教會石牌教會</strong><p>112 台北市北投區致遠一路一段 27 號<br>電話：<a href="tel:+886228233734">02-2823-3734</a></p></div>
+    <div class="footer-links"><a href="index.html">首頁</a><a href="visit.html">我要去教會</a><a href="contact.html">與我聯繫</a></div>
+    <small>© 真耶穌教會石牌教會</small>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

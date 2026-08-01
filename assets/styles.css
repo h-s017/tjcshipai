@@ -76,14 +76,28 @@ img,iframe{max-width:100%}
 
 .menu-button{
   display:none;
-  border:1px solid var(--line);
+  width:44px;
+  height:44px;
+  border:0;
   background:transparent;
-  padding:8px 13px;
-  border-radius:999px;
-  font-family:var(--body);
-  font-size:17px;
-  letter-spacing:.14em;
+  padding:10px;
+  border-radius:0;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  cursor:pointer;
 }
+.menu-button span{
+  display:block;
+  width:24px;
+  height:1.5px;
+  background:var(--ink);
+  transition:transform .2s ease, opacity .2s ease;
+}
+.menu-button[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.menu-button[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-button[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
 .hero{
   max-width:var(--max);
@@ -439,3 +453,31 @@ dd{margin:0}
   .hero-verse{left:14px;right:14px;bottom:14px;padding:16px}
   .hero-verse p{font-size:20px}
 }
+
+
+.contact-form{
+  max-width:760px;
+  display:grid;
+  gap:22px;
+}
+.contact-form label{
+  display:grid;
+  gap:8px;
+  font-size:17px;
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--paper);
+  color:var(--ink);
+  padding:13px 15px;
+  font:inherit;
+  font-size:17px;
+}
+.contact-form textarea{min-height:180px;resize:vertical}
+.contact-form input:focus,
+.contact-form textarea:focus{outline:1px solid var(--ink);outline-offset:2px}
+.contact-note{font-size:16px;color:var(--muted)}
+.honeypot{position:absolute;left:-9999px}

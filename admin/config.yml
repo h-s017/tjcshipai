@@ -46,7 +46,7 @@ collections:
           - { label: "頁面導言", name: "intro", widget: "text" }
           - { label: "沿革內文", name: "content", widget: "markdown" }
 
-      - label: "石牌40｜家族見證"
+      - label: "生命見證"
         name: "testimonies"
         file: "data/testimonies.json"
         format: "json"
@@ -60,14 +60,9 @@ collections:
             name: "items"
             widget: "list"
             fields:
-              - { label: "日期", name: "date", widget: "string" }
-              - { label: "原始建立日期", name: "originalDate", widget: "string", required: false }
-              - { label: "原始日期備註", name: "originalDateText", widget: "text", required: false }
               - { label: "Slug", name: "slug", widget: "string" }
               - { label: "標題", name: "title", widget: "string" }
-              - { label: "作者", name: "author", widget: "string", required: false }
-              - { label: "家庭／作者", name: "family", widget: "string" }
+              - { label: "作者中文全名", name: "author", widget: "string", pattern: ["^[一-龥]+$", "請只輸入中文全名"] }
               - { label: "摘要", name: "excerpt", widget: "text" }
               - { label: "內文", name: "content", widget: "text" }
-              - { label: "狀態", name: "status", widget: "string" }
               - { label: "來源連結", name: "sourceUrl", widget: "string", required: false }

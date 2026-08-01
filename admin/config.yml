@@ -36,6 +36,16 @@ collections:
               - { label: "摘要", name: "excerpt", widget: "text" }
               - { label: "連結", name: "url", widget: "string" }
 
+      - label: "教會沿革"
+        name: "history"
+        file: "data/history.json"
+        format: "json"
+        fields:
+          - { label: "頁面標題", name: "pageTitle", widget: "string" }
+          - { label: "更新日期", name: "updatedAt", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+          - { label: "頁面導言", name: "intro", widget: "text" }
+          - { label: "沿革內文", name: "content", widget: "markdown" }
+
       - label: "石牌40｜家族見證"
         name: "testimonies"
         file: "data/testimonies.json"

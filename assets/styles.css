@@ -193,7 +193,7 @@ h1{
   min-height:50px;
   padding:11px 20px;
   border:1px solid var(--ink);
-  border-radius:999px;
+  border-radius:0;
   font-size:18px;
   transition:.2s ease;
 }
@@ -310,11 +310,14 @@ dd{margin:0}
   font-size:17px;
   letter-spacing:.12em;
 }
-.card-grid.three{
+.card-grid.three,
+.card-grid.two{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
+
+.card-grid.two{grid-template-columns:repeat(2,1fr)}
 .resource-card{
   padding:28px;
   min-height:360px;
@@ -430,7 +433,7 @@ dd{margin:0}
   }
   .nav.is-open{display:flex}
   .menu-button{display:inline-flex}
-  .visit-grid,.card-grid.three,.cta-section,.footer,.belief-list{
+  .visit-grid,.card-grid.three,.card-grid.two,.cta-section,.footer,.belief-list{
     grid-template-columns:1fr;
   }
   .news-item{

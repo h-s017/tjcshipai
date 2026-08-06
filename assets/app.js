@@ -43,7 +43,7 @@ if (menuButton && nav) {
   document.body.appendChild(script);
 })();
 
-// Homepage weekly livestream. Taiwan time decides the weekly Wednesday, Friday and Saturday notice.
+// Homepage online gathering. Taiwan time highlights Wednesday, Friday and Saturday gathering days.
 (function loadShipaiLivestream(){
   const frame = document.getElementById('shipai-live-frame');
   const status = document.getElementById('shipai-live-status');
@@ -54,6 +54,6 @@ if (menuButton && nav) {
   const isLiveDay = liveDays.includes(taipeiNow.getDay());
   frame.src = 'https://www.youtube.com/embed/live_stream?channel=UCk8zggAqSLPpgpTlR75Ju6w&autoplay=0';
   status.textContent = isLiveDay
-    ? '今天是固定直播日；開播後可直接在此觀看。'
-    : '固定直播日為每週三、週五、週六；最新直播會自動顯示於此。';
+    ? '今天是聚會日；聚會開始後可直接在此觀看。'
+    : '線上聚會時間為週三、週五 19:50–21:00，以及週六 09:50–11:10、13:20–14:40。';
 })();

@@ -76,12 +76,22 @@ if (menuButton && nav) {
       : [];
   const currentWindow = windows.find(([start, end]) => minutes >= start && minutes < end);
 
-  const showLatestRecording = function(){
-    frame.src = 'https://www.youtube.com/embed/videoseries?list=' + uploadsPlaylist;
+  const showLatestRecording = async function(){
+    let videoId = 'dmrzvlui9vM';
+    try {
+      const response = await fetch('data/latest-video.json', { cache: 'no-store' });
+      if (response.ok) {
+        const data = await response.json();
+        if (data.videoId) videoId = data.videoId;
+      }
+    } catch (error) {
+      // Keep the known playable video as fallback.
+    }
+    frame.src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?rel=0';
     status.textContent = '目前播放最近一次聚會轉存的影片；每次聚會完成後會自動更新。';
     if (link) {
-      link.href = 'https://youtube.com/@TJChurchShipai/videos';
-      link.textContent = '查看所有聚會影片';
+      link.href = 'https://youtu.be/' + encodeURIComponent(videoId);
+      link.textContent = '開啟聚會影片';
     }
   };
 

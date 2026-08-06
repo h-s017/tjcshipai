@@ -1,6 +1,8 @@
 @font-face{
-  font-family:"jf-openhuninn";
-  src:url("https://cdn.jsdelivr.net/gh/justfont/open-huninn-font@master/font/jf-openhuninn-2.1.ttf") format("truetype");
+  font-family:"jf-jinxuan-fresh";
+  src:url("fonts/jf-jinxuan-fresh-medium.woff2") format("woff2");
+  font-weight:500;
+  font-style:normal;
   font-display:swap;
 }
 
@@ -15,8 +17,8 @@
   --accent:#000000;
   --radius:22px;
   --max:1120px;
-  --serif:"jf-openhuninn","Arial Rounded MT Bold","Microsoft JhengHei",sans-serif;
-  --body:"jf-openhuninn","Arial Rounded MT Bold","Microsoft JhengHei",sans-serif;
+  --serif:"jf-jinxuan-fresh","Noto Serif TC","Microsoft JhengHei",sans-serif;
+  --body:"jf-jinxuan-fresh","Noto Serif TC","Microsoft JhengHei",sans-serif;
   --text-size:20.8px;
 }
 

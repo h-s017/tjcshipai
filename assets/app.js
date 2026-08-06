@@ -42,3 +42,18 @@ if (menuButton && nav) {
   };
   document.body.appendChild(script);
 })();
+
+// Homepage weekly livestream. Taiwan time decides the weekly Wednesday, Friday and Saturday notice.
+(function loadShipaiLivestream(){
+  const frame = document.getElementById('shipai-live-frame');
+  const status = document.getElementById('shipai-live-status');
+  if (!frame || !status) return;
+
+  const taipeiNow = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Taipei' }));
+  const liveDays = [3, 5, 6];
+  const isLiveDay = liveDays.includes(taipeiNow.getDay());
+  frame.src = 'https://www.youtube.com/embed/live_stream?channel=UCk8zggAqSLPpgpTlR75Ju6w&autoplay=0';
+  status.textContent = isLiveDay
+    ? '今天是固定直播日；開播後可直接在此觀看。'
+    : '固定直播日為每週三、週五、週六；最新直播會自動顯示於此。';
+})();

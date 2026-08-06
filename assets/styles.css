@@ -486,3 +486,15 @@ dd{margin:0}
 .contact-form textarea:focus{outline:1px solid var(--ink);outline-offset:2px}
 .contact-note{font-size:16px;color:var(--muted)}
 .honeypot{position:absolute;left:-9999px}
+
+/* Homepage daily reading and weekly livestream */
+.faith-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.faith-card{border:1px solid var(--line,#d8d8d4);padding:28px;background:#fff;display:flex;flex-direction:column;gap:18px}
+.faith-card-head h3{margin:6px 0 0}
+.faith-label{font-size:.78rem;letter-spacing:.12em;color:var(--muted,#666)}
+.faith-card-body{min-height:92px;line-height:1.8}
+.faith-card-body .date,.live-status{color:var(--muted,#666);font-size:.92rem}
+.live-embed{position:relative;aspect-ratio:16/9;background:#111;overflow:hidden}
+.live-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.faith-card .button{align-self:flex-start}
+@media (max-width:760px){.faith-grid{grid-template-columns:1fr}.faith-card{padding:22px}}

@@ -502,10 +502,12 @@ dd{margin:0}
 @media (max-width:760px){.faith-grid{grid-template-columns:1fr}.faith-card{padding:22px}}
 
 .online-schedule{display:grid;gap:12px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.online-schedule div{display:grid;grid-template-columns:130px 1fr;gap:8px 18px;align-items:baseline}
-.online-schedule strong{font-weight:500}
+.online-schedule div{display:grid;grid-template-columns:130px minmax(120px,max-content) 1fr;gap:8px 18px;align-items:baseline}
+.online-schedule strong{font-weight:500;grid-row:1 / -1}
+.online-schedule span:nth-of-type(odd){grid-column:2}
+.online-schedule span:nth-of-type(even){grid-column:3}
 .online-schedule span{display:block;color:var(--muted);line-height:1.55}
-@media (max-width:540px){.online-schedule div{grid-template-columns:1fr;gap:2px}}
+@media (max-width:540px){.online-schedule div{grid-template-columns:minmax(72px,max-content) 1fr;gap:2px 16px}.online-schedule strong{grid-column:1 / -1;grid-row:auto}.online-schedule span:nth-of-type(odd){grid-column:1}.online-schedule span:nth-of-type(even){grid-column:2}}
 
 .reading-preview{margin:14px 0 0;color:var(--muted);line-height:1.75;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
 

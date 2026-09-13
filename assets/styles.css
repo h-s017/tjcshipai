@@ -517,3 +517,15 @@ dd{margin:0}
 .home-hero .hero-text{align-self:start}
 .home-hero h1{line-height:1.5}
 .home-hero .scripture-ref{margin-top:24px;line-height:1.9}
+
+/* Visit worship scripture */
+#schedule .schedule-scripture{
+  font-size:clamp(25px,3vw,36px);
+  line-height:1.8;
+  color:var(--ink);
+}
+#schedule .schedule-scripture .scripture-ref{
+  margin-top:18px;
+  font-size:clamp(21px,2.3vw,28px);
+  line-height:1.7;
+}

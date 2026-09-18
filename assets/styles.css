@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&display=swap");
 
 @font-face{
   font-family:"jf-jinxuan-fresh";
@@ -19,8 +19,8 @@
   --accent:#000000;
   --radius:22px;
   --max:1120px;
-  --serif:"Cormorant Garamond","Noto Serif TC","Source Han Serif TC","Source Han Serif","思源宋體","Songti TC","PMingLiU",serif;
-  --body:"Cormorant Garamond","Noto Serif TC","Source Han Serif TC","Source Han Serif","思源宋體","Songti TC","PMingLiU",serif;
+  --serif:"Helvetica Neue",Arial,"Noto Serif TC","Source Han Serif TC","Source Han Serif","思源宋體","Songti TC","PMingLiU",sans-serif;
+  --body:"Helvetica Neue",Arial,"Noto Serif TC","Source Han Serif TC","Source Han Serif","思源宋體","Songti TC","PMingLiU",sans-serif;
   --text-size:16px;
 }
 

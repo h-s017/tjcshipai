@@ -186,7 +186,7 @@ h1{
 .hero-copy{
   max-width:690px;
   color:var(--muted);
-  font-size:clamp(21px,2.6vw,25px);
+  font-size:19px;
 }
 .hero-actions,.button-row,.cta-actions{
   display:flex;

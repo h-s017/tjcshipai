@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap");
+
 @font-face{
   font-family:"jf-jinxuan-fresh";
   src:url("fonts/jf-jinxuan-fresh-medium.woff2") format("woff2");
@@ -17,9 +19,9 @@
   --accent:#000000;
   --radius:22px;
   --max:1120px;
-  --serif:"jf-jinxuan-fresh","Noto Serif TC","Microsoft JhengHei",sans-serif;
-  --body:"jf-jinxuan-fresh","Noto Serif TC","Microsoft JhengHei",sans-serif;
-  --text-size:20.8px;
+  --serif:"Cormorant Garamond","Noto Serif TC","Source Han Serif TC","Source Han Serif","思源宋體","Songti TC","PMingLiU",serif;
+  --body:"Cormorant Garamond","Noto Serif TC","Source Han Serif TC","Source Han Serif","思源宋體","Songti TC","PMingLiU",serif;
+  --text-size:16px;
 }
 
 *{box-sizing:border-box}
@@ -30,8 +32,8 @@ body{
   color:var(--ink);
   font-family:var(--body);
   font-size:var(--text-size);
-  font-weight:300;
-  line-height:1.9;
+  font-weight:400;
+  line-height:1.82;
   letter-spacing:.035em;
 }
 
@@ -72,7 +74,7 @@ img,iframe{max-width:100%}
   display:flex;
   align-items:center;
   gap:22px;
-  font-size:17px;
+  font-size:14px;
   color:var(--muted);
 }
 .nav a{transition:.2s ease}
@@ -147,7 +149,7 @@ img,iframe{max-width:100%}
   display:block;
   margin-bottom:0;
   font-style:normal;
-  font-size:17px;
+  font-size:14px;
   letter-spacing:.12em;
 }
 .hero-verse p{
@@ -169,7 +171,7 @@ img,iframe{max-width:100%}
   text-transform:uppercase;
   color:var(--muted);
   letter-spacing:.18em;
-  font-size:18px;
+  font-size:14px;
   margin-bottom:18px;
 }
 h1,h2,h3,p{margin-top:0}
@@ -200,7 +202,7 @@ h1{
   padding:11px 20px;
   border:1px solid var(--ink);
   border-radius:0;
-  font-size:18px;
+  font-size:16px;
   transition:.2s ease;
 }
 .button.primary{
@@ -240,8 +242,8 @@ h2{
 h3{
   font-family:var(--body);
   font-weight:400;
-  font-size:36px;
-  line-height:1.35;
+  font-size:26px;
+  line-height:1.4;
   margin-bottom:12px;
 }
 .section-head p,.panel p,.resource-card p,.news-item span:last-child,.belief-list p{
@@ -250,7 +252,7 @@ h3{
 .text-link,.card-link{
   border-bottom:1px solid currentColor;
   color:var(--ink);
-  font-size:18px;
+  font-size:15.4px;
 }
 .visit-grid{
   display:grid;
@@ -277,7 +279,7 @@ h3{
 }
 dt{
   color:var(--muted);
-  font-size:17px;
+  font-size:14px;
 }
 dd{margin:0}
 .map-panel{
@@ -372,7 +374,7 @@ dd{margin:0}
   gap:28px;
   align-items:start;
   color:var(--muted);
-  font-size:18px;
+  font-size:15px;
 }
 .footer strong{color:var(--ink);font-weight:500}
 .footer-links{
@@ -387,7 +389,7 @@ dd{margin:0}
   border-radius:999px;
   padding:8px 14px;
   color:var(--muted);
-  font-size:17px;
+  font-size:14px;
 }
 .notice-panel{
   background:var(--paper);
@@ -472,7 +474,7 @@ dd{margin:0}
 .contact-form label{
   display:grid;
   gap:8px;
-  font-size:17px;
+  font-size:15px;
 }
 .contact-form input,
 .contact-form textarea{
@@ -483,7 +485,7 @@ dd{margin:0}
   color:var(--ink);
   padding:13px 15px;
   font:inherit;
-  font-size:17px;
+  font-size:16px;
 }
 .contact-form textarea{min-height:180px;resize:vertical}
 .contact-form input:focus,

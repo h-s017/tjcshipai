@@ -62,7 +62,7 @@ if (menuButton && nav) {
   const frame = document.getElementById('shipai-live-frame');
   const status = document.getElementById('shipai-live-status');
   const link = document.getElementById('shipai-gathering-link');
-  if (!frame || !status) return;
+  if (!frame) return;
 
   const channelId = 'UCk8zggAqSLPpgpTlR75Ju6w';
   const uploadsPlaylist = 'UUk8zggAqSLPpgpTlR75Ju6w';
@@ -79,7 +79,7 @@ if (menuButton && nav) {
   const showLatestRecording = async function(){
     let videoId = 'dmrzvlui9vM';
     try {
-      const response = await fetch('data/latest-video.json', { cache: 'no-store' });
+      const response = await fetch('data/latest-video.json?t=' + Date.now(), { cache: 'no-store' });
       if (response.ok) {
         const data = await response.json();
         if (data.videoId) videoId = data.videoId;
@@ -88,7 +88,7 @@ if (menuButton && nav) {
       // Keep the known playable video as fallback.
     }
     frame.src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?rel=0';
-    status.textContent = '目前播放最近一次聚會轉存的影片；每次聚會完成後會自動更新。';
+    if (status) status.textContent = '目前播放最近一次聚會轉存的影片；每次聚會完成後會自動更新。';
     if (link) {
       link.href = 'https://youtu.be/' + encodeURIComponent(videoId);
       link.textContent = '開啟聚會影片';
@@ -97,7 +97,7 @@ if (menuButton && nav) {
 
   if (currentWindow) {
     frame.src = 'https://www.youtube.com/embed/live_stream?channel=' + channelId + '&autoplay=0';
-    status.textContent = '目前為崇拜時間，可直接觀看直播；結束後會自動切換成聚會影片。';
+    if (status) status.textContent = '目前為崇拜時間，可直接觀看直播；結束後會自動切換成聚會影片。';
     if (link) {
       link.href = 'https://youtube.com/@TJChurchShipai/live';
       link.textContent = '開啟聚會連結';

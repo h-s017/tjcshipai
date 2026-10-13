@@ -516,6 +516,16 @@ dd{margin:0}
 .reading-preview{margin:14px 0 0;color:var(--muted);line-height:1.75;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
 
 /* Homepage hero alignment */
+.hero-carousel{min-width:0;min-height:0;margin:0}
+.hero-carousel-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.hero-carousel-track::-webkit-scrollbar{display:none}
+.hero-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.hero-carousel .hero-slide img{width:100%;height:auto;min-height:0;object-fit:contain}
+.hero-carousel-controls{display:flex;align-items:center;justify-content:center;gap:24px;padding:10px 16px;border-top:1px solid var(--line)}
+.hero-carousel-controls button{width:44px;height:44px;border:1px solid var(--line);background:var(--soft);color:var(--ink);font-size:24px;cursor:pointer}
+.hero-carousel-controls button:hover{background:var(--line)}
+.hero-carousel-track:focus-visible,.hero-carousel-controls button:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.hero-carousel-status{font-variant-numeric:tabular-nums}
 .home-hero .hero-text{align-self:start}
 .home-hero h1{line-height:1.5}
 .home-hero .scripture-ref{margin-top:24px;line-height:1.9}

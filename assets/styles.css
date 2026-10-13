@@ -48,7 +48,7 @@ img,iframe{max-width:100%}
   align-items:center;
   justify-content:space-between;
   gap:24px;
-  padding:18px clamp(20px,4vw,54px);
+  padding:8px clamp(20px,4vw,54px);
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(18px);
   border-bottom:1px solid var(--line);
@@ -73,8 +73,8 @@ img,iframe{max-width:100%}
 .nav{
   display:flex;
   align-items:center;
-  gap:22px;
-  font-size:14px;
+  gap:18px;
+  font-size:18px;
   color:var(--muted);
 }
 .nav a{transition:.2s ease}

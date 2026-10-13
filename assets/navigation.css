@@ -115,7 +115,10 @@
   color:var(--ink);
 }
 
-@media (max-width:880px){
+@media (max-width:1040px){
+  .nav{display:none;position:absolute;top:100%;left:20px;right:20px;flex-direction:column;align-items:stretch;gap:12px;padding:18px;background:rgba(255,255,255,.98);border:1px solid var(--line)}
+  .nav.is-open{display:flex}
+  .menu-button{display:inline-flex}
   .nav{
     max-height:calc(100vh - 100px);
     overflow-y:auto;
@@ -161,7 +164,7 @@
   .submenu a,
   .submenu-trigger{
     padding:7px 8px;
-    font-size:15px;
+    font-size:17px;
     white-space:normal;
   }
 

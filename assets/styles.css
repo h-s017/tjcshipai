@@ -549,6 +549,19 @@ dd{margin:0}
 .home-hero h1{line-height:1.5}
 .home-hero .scripture-ref{margin-top:24px;line-height:1.9}
 
+/* Keep the entire poster and its controls within the available screen height. */
+.home-hero{padding-top:24px;padding-bottom:24px;align-items:center}
+.home-hero .hero-carousel{width:min(100%,calc((100svh - 200px) * .706));justify-self:end}
+.home-hero .hero-carousel-track{height:min(620px,calc(100svh - 200px))}
+.home-hero .hero-slide img{height:100%;width:100%;object-fit:contain}
+.home-hero .hero-text{align-self:center}
+.home-hero h1{font-size:clamp(28px,3.2vw,44px);line-height:1.5}
+@media (max-width:880px){
+  .home-hero{gap:24px}
+  .home-hero .hero-carousel{justify-self:center}
+  .home-hero h1{font-size:clamp(25px,4vw,36px)}
+}
+
 /* Visit worship scripture */
 #schedule .schedule-scripture{
   font-size:clamp(25px,3vw,36px);

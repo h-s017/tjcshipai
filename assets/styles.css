@@ -516,6 +516,25 @@ dd{margin:0}
 .reading-preview{margin:14px 0 0;color:var(--muted);line-height:1.75;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
 
 /* Homepage hero alignment */
+.home-page{--radius:0}
+.home-page .hero-image-card,
+.home-page .faith-card,
+.home-page .panel,
+.home-page .map-panel,
+.home-page .news-item,
+.home-page .button,
+.home-page .hero-carousel-controls button,
+.home-page .footer-links a,
+.home-page .nav,
+.home-page .submenu,
+.home-page .submenu a,
+.home-page .submenu-trigger{border-radius:0}
+.home-page .site-header,
+.home-page .section,
+.home-page .footer,
+.home-page .info-list div,
+.home-page .online-schedule,
+.home-page .hero-carousel-controls{border-top:0;border-bottom:0}
 .hero-carousel{min-width:0;min-height:0;margin:0}
 .hero-carousel-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .hero-carousel-track::-webkit-scrollbar{display:none}

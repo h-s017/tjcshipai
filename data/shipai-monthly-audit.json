@@ -1,0 +1,16 @@
+{
+  "checked_utc": "2026-10-17T16:15:25.959368+00:00",
+  "sitemap_count": 0,
+  "indexed_count": 131,
+  "missing_count": 0,
+  "sitemap_pages": 4,
+  "errors": [],
+  "monthly": {
+    "unknown": {
+      "sitemap": 0,
+      "indexed": 131,
+      "missing": 0
+    }
+  },
+  "missing_urls": []
+}

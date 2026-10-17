@@ -1,40 +1,67 @@
-#!/usr/bin/env python3
-"""Audit Blogger post sitemaps by publication month. Does not overwrite article index."""
-import collections,datetime,json,re,urllib.request,xml.etree.ElementTree as ET,pathlib
-BASE="https://tjcshipaiandtianmu.blogspot.com"
-OUT=pathlib.Path("data/shipai-monthly-audit.json")
-def fetch(url):
- req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
- with urllib.request.urlopen(req,timeout=45) as r:return r.read()
-def month(url):
- m=re.search(r"/(20\\d{2})/(0[1-9]|1[0-2])/",url)
- return "-".join(m.groups()) if m else None
-def main():
- existing=json.loads(pathlib.Path("data/bible-posts.json").read_text(encoding="utf-8"))["posts"]
- indexed={p["url"] for p in existing if p.get("source")=="石牌・天母每日讀經心得"}
- pending=[BASE+"/sitemap.xml"];seen=set();urls=set();errors=[]
- while pending and len(seen)<1000:
-  url=pending.pop(0)
-  if url in seen:continue
-  seen.add(url)
-  try:
-   root=ET.fromstring(fetch(url))
-   locs=[e.text.strip() for e in root.iter() if e.tag.endswith("}loc") and e.text]
-   if root.tag.endswith("sitemapindex"):
-    pending.extend(u for u in locs if "sitemap" in u and "tjcshipaiandtianmu.blogspot.com" in u)
-   elif root.tag.endswith("urlset"):
-    urls.update(u for u in locs if "tjcshipaiandtianmu.blogspot.com" in u and month(u) and u.endswith(".html"))
-   else:errors.append({"url":url,"error":"unexpected sitemap type"})
-  except Exception as e:errors.append({"url":url,"error":str(e)})
- if pending:errors.append({"error":"sitemap traversal limit"})
- months=collections.defaultdict(lambda:{"sitemap":0,"indexed":0,"missing":0})
- for u in urls:months[month(u)]["sitemap"]+=1
- for u in indexed:months[month(u) or "unknown"]["indexed"]+=1
- missing=sorted(urls-indexed)
- for u in missing:months[month(u)]["missing"]+=1
- report={"checked_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"sitemap_count":len(urls),"indexed_count":len(indexed),"missing_count":len(missing),"sitemap_pages":len(seen),"errors":errors,"monthly":dict(sorted(months.items())),"missing_urls":missing}
- OUT.parent.mkdir(exist_ok=True)
- OUT.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
- print("Found",len(urls),"sitemap URLs;",len(indexed),"indexed;",len(missing),"missing")
- if errors or not urls:raise RuntimeError("Sitemap audit incomplete. See report errors.")
-if __name__=="__main__":main()
+"""Cross-check every public URL before updating the index; offline reruns use cache."""
+import datetime, json, pathlib, subprocess, time
+from blogger_archive import collect, sitemap, SOURCE
+
+INDEX = pathlib.Path('data/bible-posts.json')
+
+def write(path, value):
+    path = pathlib.Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + '.tmp')
+    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    for attempt in range(6):
+        try:
+            tmp.replace(path)
+            break
+        except PermissionError:
+            if attempt == 5: raise
+            time.sleep(1)
+
+def main(update=False):
+    original = json.loads(INDEX.read_text(encoding='utf-8'))
+    old = {p['url']: p for p in original['posts'] if p['source'] == SOURCE}
+    report = {'checked_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'errors': []}
+    try:
+        found, total = collect()
+        urls, pages = sitemap()
+        missing_feed = sorted(urls - found.keys())
+        missing_sitemap = sorted(found.keys() - urls)
+        lost = sorted(old.keys() - found.keys())
+        complete = not (missing_feed or missing_sitemap or lost)
+        imported = found if complete and update else old
+        all_months = sorted({p['date'][:7] for p in found.values()} | {p['date'][:7] for p in old.values()})
+        months = {}
+        # Include empty months between the earliest and latest publication.
+        y,m = map(int, all_months[0].split('-'))
+        while f'{y:04}-{m:02}' <= all_months[-1]:
+            key = f'{y:04}-{m:02}'
+            fp = {u for u,p in found.items() if p['date'][:7] == key}
+            ip = {u for u,p in imported.items() if p['date'][:7] == key}
+            months[key] = {'discovered': len(fp), 'imported': len(ip), 'added': len((fp & ip) - old.keys()), 'missing': len(fp-ip), 'failed': 0, 'missing_urls': sorted(fp-ip)}
+            y,m = (y+1,1) if m == 12 else (y,m+1)
+        years = {}
+        for key, row in months.items():
+            year = years.setdefault(key[:4], dict.fromkeys(['discovered','imported','added','missing','failed'],0))
+            for k in year: year[k] += row[k]
+        report.update({'complete': complete, 'feed_total': total, 'verified_public_total': len(found), 'declared_total_difference': total-len(found), 'source_total_verified': total == len(found), 'sitemap_count': len(urls), 'sitemap_pages': pages, 'original_count': len(old), 'indexed_count': len(imported), 'added_count': len(imported.keys()-old.keys()), 'missing_count': len(found.keys()-imported.keys()), 'missing_urls': sorted(found.keys()-imported.keys()), 'sitemap_only_urls': missing_feed, 'feed_only_urls': missing_sitemap, 'lost_existing_urls': lost, 'monthly': months, 'yearly': years})
+        if not complete:
+            raise RuntimeError('URL sets differ; index left unchanged')
+        candidate = dict(original)
+        candidate['posts'] = [p for p in original['posts'] if p['source'] != SOURCE] + sorted(found.values(), key=lambda p:(p['date'],p['url']), reverse=True)
+        candidate['count'] = len(candidate['posts'])
+        write('data/shipai-discovered.json', {'posts': sorted(found.values(),key=lambda p:p['url'])})
+        result = subprocess.run(['node','scripts/check_bible.cjs'], check=True, capture_output=True, text=True, encoding='utf-8')
+        report['chapter_review'] = json.loads(result.stdout)
+        report['chapter_review_count'] = len(report['chapter_review'])
+        if update:
+            write(INDEX, candidate)
+    except Exception as exc:
+        report['complete'] = False
+        report['errors'].append(str(exc))
+        write('data/shipai-monthly-audit.json', report)
+        raise
+    write('data/shipai-monthly-audit.json', report)
+    print(json.dumps({k:v for k,v in report.items() if k not in ['monthly','chapter_review']},ensure_ascii=False))
+
+if __name__ == '__main__':
+    main()

@@ -50,7 +50,9 @@ def main(update=False):
         candidate['posts'] = [p for p in original['posts'] if p['source'] != SOURCE] + sorted(found.values(), key=lambda p:(p['date'],p['url']), reverse=True)
         candidate['count'] = len(candidate['posts'])
         write('data/shipai-discovered.json', {'posts': sorted(found.values(),key=lambda p:p['url'])})
-        result = subprocess.run(['node','scripts/check_bible.cjs'], check=True, capture_output=True, text=True, encoding='utf-8')
+        result = subprocess.run(['node','scripts/check_bible.cjs'], capture_output=True, text=True, encoding='utf-8')
+        if result.returncode:
+            raise RuntimeError('Bible validator failed: ' + (result.stderr or result.stdout)[-4000:])
         report['chapter_review'] = json.loads(result.stdout)
         report['chapter_review_count'] = len(report['chapter_review'])
         if update:

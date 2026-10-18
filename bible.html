@@ -46,7 +46,45 @@ function identify(title){
  }}return null
 }
 function loadSource(source){if(cache[source.base])return cache[source.base];cache[source.base]=new Promise(resolve=>{const cb='bibleFeed'+Math.random().toString(36).slice(2);const script=document.createElement('script');let done=false;const finish=(data)=>{if(done)return;done=true;delete window[cb];script.remove();resolve(data)};window[cb]=data=>{const entries=(data.feed&&data.feed.entry||[]).map(e=>({title:e.title.$t,url:(e.link||[]).find(l=>l.rel==='alternate')?.href,date:e.published?.$t?.slice(0,10),match:identify(e.title.$t)})).filter(e=>e.url);finish(entries)};script.onerror=()=>finish([]);script.src=source.base+'/feeds/posts/default?alt=json-in-script&max-results=150&callback='+cb;document.head.append(script);setTimeout(()=>finish([]),12000)});return cache[source.base]}
-async function renderMatches(){const i=selected,ch=chapter,entry=el('entry');const archive=await loadArchive();const results=archive?sources.map(s=>archive.filter(p=>p.source===s.name)):await Promise.all(sources.map(loadSource));if(i!==selected||ch!==chapter)return;entry.replaceChildren();const title=document.createElement('h3');title.textContent=books[i][0]+' 第 '+ch+' 章';entry.append(title);let found=0;results.forEach((posts,j)=>{const hits=posts.filter(p=>p.match&&p.match.i===i&&p.match.ch===ch);if(!hits.length)return;const heading=document.createElement('h4');heading.className='result-title';heading.textContent=sources[j].name+' · '+hits.length+' 篇';entry.append(heading);hits.forEach(post=>{const link=document.createElement('a');link.className='article-card';link.href=post.url;link.target='_blank';link.rel='noopener noreferrer';const source=document.createElement('span');source.className='source';source.textContent=sources[j].name;const name=document.createElement('strong');name.className='article-title';name.textContent=post.title;const date=document.createElement('span');date.className='date';date.textContent=post.date||'';const read=document.createElement('span');read.className='read';read.textContent='閱讀文章 ↗';link.append(source,name,date,read);entry.append(link);found++})});if(!found){const p=document.createElement('p');p.className='muted';p.textContent='目前尚無符合本章的心得文章。';entry.append(p)}}
+async function renderMatches(){
+  const i=selected,ch=chapter,entry=el('entry');
+  const archive=await loadArchive();
+  const results=archive?sources.map(s=>archive.filter(p=>p.source===s.name)):await Promise.all(sources.map(loadSource));
+  if(i!==selected||ch!==chapter)return;
+  entry.replaceChildren();
+  const title=document.createElement('h3');
+  title.textContent=books[i][0]+' 第 '+ch+' 章';
+  entry.append(title);
+  const hits=results.flatMap(posts=>posts.filter(p=>p.match&&p.match.i===i&&p.match.ch===ch));
+  hits.sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(a.title||'').localeCompare(b.title||''));
+  for(const post of hits){
+    const link=document.createElement('a');
+    link.className='article-card';
+    link.href=post.url;
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    const source=document.createElement('span');
+    source.className='source';
+    source.textContent=post.source||'讀經心得';
+    const name=document.createElement('strong');
+    name.className='article-title';
+    name.textContent=post.title;
+    const date=document.createElement('span');
+    date.className='date';
+    date.textContent=post.date||'';
+    const read=document.createElement('span');
+    read.className='read';
+    read.textContent='閱讀文章 ↗';
+    link.append(source,name,date,read);
+    entry.append(link);
+  }
+  if(!hits.length){
+    const p=document.createElement('p');
+    p.className='muted';
+    p.textContent='目前尚無符合本章的心得文章。';
+    entry.append(p);
+  }
+}
 restoreLink();
 window.addEventListener('popstate',restoreLink);window.addEventListener('hashchange',restoreLink);
 </script></body></html>

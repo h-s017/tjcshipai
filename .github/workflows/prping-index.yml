@@ -2,7 +2,7 @@ name: Update 牧養主的羊 Bible reflections
 on:
   workflow_dispatch:
   schedule:
-    - cron: '45 2 * * *'
+    - cron: '10 22,4 * * *'
 permissions:
   contents: write
 concurrency:

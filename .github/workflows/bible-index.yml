@@ -5,6 +5,9 @@ on:
     - cron: '20 2 * * *'
 permissions:
   contents: write
+concurrency:
+  group: bible-reflection-index
+  cancel-in-progress: false
 jobs:
   index:
     runs-on: ubuntu-latest

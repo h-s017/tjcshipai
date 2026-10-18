@@ -2,7 +2,7 @@ name: Update Bible reflection index
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 2 * * *'
+    - cron: '10 22 * * *'
 permissions:
   contents: write
 concurrency:

@@ -1,8 +1,8 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const html=fs.readFileSync('bible.html','utf8');
 const js=html.match(/<script>([\s\S]*)<\/script>/)[1];
-const element=()=>({value:'',children:[],replaceChildren(){this.children=[]},append(...items){this.children.push(...items)},classList:{add(){},toggle(){}},style:{},setAttribute(){},addEventListener(){},scrollIntoView(){}});
-const elements={};const context={document:{getElementById:id=>(elements[id]??=element()),createElement:element,createTextNode:text=>({textContent:text})},console,window:{addEventListener(){}},location:{search:'',hash:''},URLSearchParams,requestAnimationFrame(){},setTimeout(){}};
+const element=()=>({value:'',children:[],replaceChildren(){this.children=[]},append(...items){this.children.push(...items)},classList:{add(){},remove(){},toggle(){}},style:{},setAttribute(){},addEventListener(){},scrollIntoView(){}});
+const elements={};const context={document:{getElementById:id=>(elements[id]??=element()),createElement:element,createTextNode:text=>({textContent:text}),addEventListener(){}},console,window:{addEventListener(){}},location:{search:'',hash:''},URLSearchParams,requestAnimationFrame(){},setTimeout(){}};
 vm.createContext(context);vm.runInContext(js,context);
 function identify(title){return vm.runInContext(`identify(${JSON.stringify(title)})`,context);}
 for(const [title,i,ch] of [['詩一〇〇',18,100],['詩一一〇',18,110],['啓二',65,2],['約一',42,1],['約一 第一章',61,1],['約翰一書 第五章',61,5],['（耶ㄧ）',23,1],['詩篇第一百廿三篇',18,123],['（詩卅）',18,30],['（創50）',0,50],['（約二）',42,2]]){

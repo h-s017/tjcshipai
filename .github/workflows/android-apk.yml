@@ -35,6 +35,20 @@ jobs:
           echo "ANDROID_HOME=$ANDROID_HOME"
           test -d "$ANDROID_HOME"
           "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --version || true
+      - name: Bundle JavaScript inside installable APK
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('android/app/build.gradle')
+          s=p.read_text()
+          if 'debuggableVariants = ["debug"]' in s:
+              s=s.replace('debuggableVariants = ["debug"]','debuggableVariants = []')
+          elif 'debuggableVariants = [\'debug\']' in s:
+              s=s.replace("debuggableVariants = ['debug']",'debuggableVariants = []')
+          else:
+              s=s.replace('react {','react {\n    debuggableVariants = []',1)
+          p.write_text(s)
+          PY
       - name: Build debug APK for colleague testing
         run: |
           chmod +x android/gradlew

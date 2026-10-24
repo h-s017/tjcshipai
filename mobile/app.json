@@ -8,18 +8,23 @@
     "userInterfaceStyle": "light",
     "ios": {
       "bundleIdentifier": "org.tjcshipai.dailybible",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "org.tjcshipai.dailybible",
       "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#574935"
-      }
+      },
+      "permissions": []
     },
     "plugins": [],
     "extra": {
-      "website": "https://h-s017.github.io/tjcshipai/bible.html"
+      "website": "https://h-s017.github.io/tjcshipai/bible.html",
+      "privacyPolicy": "https://h-s017.github.io/tjcshipai/privacy.html"
     }
   }
 }

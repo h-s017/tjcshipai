@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "每日讀經心得",
+    "slug": "tjcshipai-daily-bible",
+    "scheme": "tjcshipaibible",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "bundleIdentifier": "org.tjcshipai.dailybible",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "org.tjcshipai.dailybible",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#574935"
+      }
+    },
+    "plugins": [],
+    "extra": {
+      "website": "https://h-s017.github.io/tjcshipai/bible.html"
+    }
+  }
+}

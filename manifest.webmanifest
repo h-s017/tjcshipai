@@ -1,0 +1,19 @@
+{
+  "name": "每日讀經心得｜聖經元素表",
+  "short_name": "每日讀經",
+  "description": "免登入閱讀石牌教會每日讀經心得，按經卷與章節查找並分享。",
+  "lang": "zh-Hant",
+  "start_url": "./bible.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbfaf7",
+  "theme_color": "#574935",
+  "icons": [
+    {
+      "src": "assets/bible-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

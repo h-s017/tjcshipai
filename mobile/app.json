@@ -17,6 +17,7 @@
       "package": "org.tjcshipai.dailybible",
       "versionCode": 1,
       "adaptiveIcon": {
+        "foregroundImage": "./assets/bible-app-icon.png",
         "backgroundColor": "#574935"
       },
       "permissions": []
@@ -25,6 +26,7 @@
     "extra": {
       "website": "https://h-s017.github.io/tjcshipai/bible.html",
       "privacyPolicy": "https://h-s017.github.io/tjcshipai/privacy.html"
-    }
+    },
+    "icon": "./assets/bible-app-icon.png"
   }
 }

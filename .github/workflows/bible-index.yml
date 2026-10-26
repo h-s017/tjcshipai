@@ -1,8 +1,17 @@
 name: Update Bible reflection index
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bible-index.yml'
+      - 'scripts/check_bible.cjs'
+      - 'scripts/audit_shipai_months.py'
+      - 'scripts/blogger_archive.py'
   schedule:
+    # Asia/Taipei 06:10; retry at 10:00 and 12:00 if a run was skipped/failed.
     - cron: '10 22 * * *'
+    - cron: '0 2,4 * * *'
 permissions:
   contents: write
 concurrency:
@@ -28,5 +37,6 @@ jobs:
           git add data/bible-posts.json data/shipai-monthly-audit.json data/shipai-discovered.json
           if ! git diff --cached --quiet; then
             git commit -m "Refresh complete Bible reflection archive index"
+            git pull --rebase
             git push
           fi

@@ -20,7 +20,7 @@ async function verifyRendering(){
  context.fixture=[...shipai,...other];context.testBook=pair.match.i;context.testChapter=pair.match.ch;
  vm.runInContext('archivePromise=Promise.resolve(fixture);selected=testBook;chapter=testChapter',context);
  await vm.runInContext('renderMatches()',context);
- for(const source of ['石牌・天母每日讀經心得','如鷹展翅'])assert.ok(elements.entry.children.some(e=>e.children?.some(child=>child.textContent===source)),source);
+ for(const source of ['真耶穌教會石牌天母每日讀經心得','如鷹展翅'])assert.ok(elements.entry.children.some(e=>e.children?.some(child=>child.textContent===source)),source);
  assert.ok(elements.entry.children.filter(e=>e.href).length>=2);
  process.stdout.write(JSON.stringify(review));
 }

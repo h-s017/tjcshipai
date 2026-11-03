@@ -1,16 +1,16 @@
 {
-  "checked_utc": "2026-11-02T08:44:52.149789+00:00",
+  "checked_utc": "2026-11-03T03:26:39.198655+00:00",
   "errors": [],
   "complete": true,
-  "feed_total": 1884,
-  "verified_public_total": 1883,
+  "feed_total": 1885,
+  "verified_public_total": 1884,
   "declared_total_difference": 1,
   "source_total_verified": false,
-  "sitemap_count": 1883,
+  "sitemap_count": 1884,
   "sitemap_pages": 4,
   "original_count": 1883,
-  "indexed_count": 1883,
-  "added_count": 0,
+  "indexed_count": 1884,
+  "added_count": 1,
   "missing_count": 0,
   "missing_urls": [],
   "sitemap_only_urls": [],
@@ -514,9 +514,9 @@
       "missing_urls": []
     },
     "2026-11": {
-      "discovered": 2,
-      "imported": 2,
-      "added": 0,
+      "discovered": 3,
+      "imported": 3,
+      "added": 1,
       "missing": 0,
       "failed": 0,
       "missing_urls": []
@@ -559,9 +559,9 @@
       "failed": 0
     },
     "2026": {
-      "discovered": 307,
-      "imported": 307,
-      "added": 0,
+      "discovered": 308,
+      "imported": 308,
+      "added": 1,
       "missing": 0,
       "failed": 0
     }
